@@ -56,6 +56,7 @@ return {
   -- Setup copilot.vim
   {
     "github/copilot.vim",
+    enabled = false,
     event = "VeryLazy",
     config = function()
       -- For copilot.vim
