@@ -15,20 +15,6 @@ return {
           auto_override_publish_diagnostics = true,
         },
       },
-      -- Type queries
-      {
-        "marilari88/twoslash-queries.nvim",
-        ft = "javascript,typescript,typescriptreact,svelte",
-        opts = {
-          is_enabled = false, -- Use :TwoslashQueriesEnable to enable
-          multi_line = true, -- to print types in multi line mode
-          highlight = "Type", -- to set up a highlight group for the virtual text
-        },
-        keys = {
-          { "<leader>dt", ":TwoslashQueriesEnable<cr>", desc = "Enable twoslash queries" },
-          { "<leader>dd", ":TwoslashQueriesInspect<cr>", desc = "Inspect twoslash queries" },
-        },
-      },
     },
     opts = {
       servers = {
@@ -92,13 +78,6 @@ return {
           if Lsp.deno_config_exist() then
             return true
           end
-
-          require("lazyvim.util").lsp.on_attach(function(client, bufnr)
-            if client.name == "vtsls" then
-              -- Attach twoslash queries
-              require("twoslash-queries").attach(client, bufnr)
-            end
-          end)
         end,
       },
     },
