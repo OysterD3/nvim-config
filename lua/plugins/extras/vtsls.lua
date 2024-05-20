@@ -3,6 +3,7 @@ local Lsp = require("utils.lsp")
 return {
   {
     "neovim/nvim-lspconfig",
+    enabled = false,
     dependencies = {
       {
         "yioneko/nvim-vtsls",

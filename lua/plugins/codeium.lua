@@ -11,7 +11,15 @@ return {
   -- Add codeium, make sure that you ran :Codeium Auth after installation.
   {
     "Exafunction/codeium.vim",
+    dependencies = {
+        "nvim-lua/plenary.nvim",
+        "hrsh7th/nvim-cmp",
+    },
     config = function()
+      -- require("codeium").setup({
+      --   enable_chat = true
+      --   })
+
       -- Disable files that you don't want to use codeium
       vim.g.codeium_filetypes = {
         ["TelescopePrompt"] = false,
@@ -29,6 +37,9 @@ return {
       end, { expr = true })
       vim.keymap.set("i", "<c-x>", function()
         return vim.fn["codeium#Clear"]()
+      end, { expr = true })
+      vim.keymap.set("i", "<c-i>", function()
+        return vim.fn["codeium#Complete"]()
       end, { expr = true })
     end,
   },
