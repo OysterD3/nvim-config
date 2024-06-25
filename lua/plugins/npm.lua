@@ -8,8 +8,17 @@ return {
         "<cmd>Telescope package_info<cr>",
         desc = "Telescope Package Info",
       },
+      {
+        "<leader>nc",
+        function ()
+          require("package-info").change_version()
+        end,
+        desc = "Change Version",
+      }
     },
-    opts = {},
+    opts = {
+      package_manager = 'pnpm'
+    },
     config = function(_, options)
       local status_ok, pkg = pcall(require, "package-info")
       if not status_ok then

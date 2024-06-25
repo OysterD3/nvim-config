@@ -3,6 +3,7 @@ local Lsp = require("utils.lsp")
 return {
   {
     "pmizio/typescript-tools.nvim",
+    ft = "javascript,typescript,typescriptreact,svelte,typescriptreact",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "neovim/nvim-lspconfig",

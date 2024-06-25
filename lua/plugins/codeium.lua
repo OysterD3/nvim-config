@@ -15,6 +15,7 @@ return {
         "nvim-lua/plenary.nvim",
         "hrsh7th/nvim-cmp",
     },
+    version = "1.8.37",
     config = function()
       -- require("codeium").setup({
       --   enable_chat = true
@@ -29,17 +30,20 @@ return {
       vim.keymap.set("i", "<C-g>", function()
         return vim.fn["codeium#Accept"]()
       end, { expr = true })
-      vim.keymap.set("i", "<c-j>", function()
+      vim.keymap.set("i", "<C-j>", function()
         return vim.fn["codeium#CycleCompletions"](1)
       end, { expr = true })
-      vim.keymap.set("i", "<c-k>", function()
+      vim.keymap.set("i", "<C-k>", function()
         return vim.fn["codeium#CycleCompletions"](-1)
       end, { expr = true })
-      vim.keymap.set("i", "<c-x>", function()
+      vim.keymap.set("i", "<C-x>", function()
         return vim.fn["codeium#Clear"]()
       end, { expr = true })
-      vim.keymap.set("i", "<c-i>", function()
+      vim.keymap.set("i", "<C-i>", function()
         return vim.fn["codeium#Complete"]()
+      end, { expr = true })
+      vim.keymap.set("i", "<C-c>", function()
+        return vim.fn["codeium#Chat"]()
       end, { expr = true })
     end,
   },
